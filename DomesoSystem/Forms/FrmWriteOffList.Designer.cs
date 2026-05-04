@@ -47,6 +47,7 @@
             // 
             // cmbReasonFilter
             // 
+            this.cmbReasonFilter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbReasonFilter.FormattingEnabled = true;
             this.cmbReasonFilter.Location = new System.Drawing.Point(419, 93);
             this.cmbReasonFilter.Name = "cmbReasonFilter";
@@ -102,6 +103,7 @@
             // txtSearchWriteOff
             // 
             this.txtSearchWriteOff.Location = new System.Drawing.Point(115, 93);
+            this.txtSearchWriteOff.MaxLength = 100;
             this.txtSearchWriteOff.Name = "txtSearchWriteOff";
             this.txtSearchWriteOff.Size = new System.Drawing.Size(186, 32);
             this.txtSearchWriteOff.TabIndex = 21;
@@ -178,9 +180,13 @@
             this.Controls.Add(this.lblSearchWriteOff);
             this.Controls.Add(this.lblTitle);
             this.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "FrmWriteOffList";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Списания";
             ((System.ComponentModel.ISupportInitialize)(this.dgvWriteOffs)).EndInit();
             this.ResumeLayout(false);

@@ -36,13 +36,13 @@
             this.btnClose = new System.Windows.Forms.Button();
             this.btnRefreshSales = new System.Windows.Forms.Button();
             this.btnAddSale = new System.Windows.Forms.Button();
-            this.dgvSales = new System.Windows.Forms.DataGridView();
             this.txtSearchSale = new System.Windows.Forms.TextBox();
-            this.дидSearchSale = new System.Windows.Forms.Label();
+            this.lblSearchSale = new System.Windows.Forms.Label();
             this.lblTitle = new System.Windows.Forms.Label();
-            this.dgvProductItems = new System.Windows.Forms.DataGridView();
             this.lblProductItems = new System.Windows.Forms.Label();
-            this.btnDeletePartner = new System.Windows.Forms.Button();
+            this.btnCancelSale = new System.Windows.Forms.Button();
+            this.dgvSales = new System.Windows.Forms.DataGridView();
+            this.dgvProductItems = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSales)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductItems)).BeginInit();
             this.SuspendLayout();
@@ -108,31 +108,22 @@
             this.btnAddSale.Text = "Оформить продажу";
             this.btnAddSale.UseVisualStyleBackColor = true;
             // 
-            // dgvSales
-            // 
-            this.dgvSales.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvSales.Location = new System.Drawing.Point(41, 157);
-            this.dgvSales.Name = "dgvSales";
-            this.dgvSales.RowHeadersWidth = 51;
-            this.dgvSales.RowTemplate.Height = 24;
-            this.dgvSales.Size = new System.Drawing.Size(789, 408);
-            this.dgvSales.TabIndex = 37;
-            // 
             // txtSearchSale
             // 
             this.txtSearchSale.Location = new System.Drawing.Point(115, 94);
+            this.txtSearchSale.MaxLength = 100;
             this.txtSearchSale.Name = "txtSearchSale";
             this.txtSearchSale.Size = new System.Drawing.Size(186, 32);
             this.txtSearchSale.TabIndex = 36;
             // 
-            // дидSearchSale
+            // lblSearchSale
             // 
-            this.дидSearchSale.AutoSize = true;
-            this.дидSearchSale.Location = new System.Drawing.Point(37, 97);
-            this.дидSearchSale.Name = "дидSearchSale";
-            this.дидSearchSale.Size = new System.Drawing.Size(72, 23);
-            this.дидSearchSale.TabIndex = 35;
-            this.дидSearchSale.Text = "Поиск";
+            this.lblSearchSale.AutoSize = true;
+            this.lblSearchSale.Location = new System.Drawing.Point(37, 97);
+            this.lblSearchSale.Name = "lblSearchSale";
+            this.lblSearchSale.Size = new System.Drawing.Size(72, 23);
+            this.lblSearchSale.TabIndex = 35;
+            this.lblSearchSale.Text = "Поиск";
             // 
             // lblTitle
             // 
@@ -144,16 +135,6 @@
             this.lblTitle.TabIndex = 34;
             this.lblTitle.Text = "Продажи";
             // 
-            // dgvProductItems
-            // 
-            this.dgvProductItems.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvProductItems.Location = new System.Drawing.Point(859, 187);
-            this.dgvProductItems.Name = "dgvProductItems";
-            this.dgvProductItems.RowHeadersWidth = 51;
-            this.dgvProductItems.RowTemplate.Height = 24;
-            this.dgvProductItems.Size = new System.Drawing.Size(262, 378);
-            this.dgvProductItems.TabIndex = 47;
-            // 
             // lblProductItems
             // 
             this.lblProductItems.AutoSize = true;
@@ -163,23 +144,62 @@
             this.lblProductItems.TabIndex = 48;
             this.lblProductItems.Text = "Товарные позиции";
             // 
-            // btnDeletePartner
+            // btnCancelSale
             // 
-            this.btnDeletePartner.Location = new System.Drawing.Point(307, 586);
-            this.btnDeletePartner.Name = "btnDeletePartner";
-            this.btnDeletePartner.Size = new System.Drawing.Size(143, 37);
-            this.btnDeletePartner.TabIndex = 49;
-            this.btnDeletePartner.Text = "Удалить";
-            this.btnDeletePartner.UseVisualStyleBackColor = true;
+            this.btnCancelSale.Location = new System.Drawing.Point(307, 586);
+            this.btnCancelSale.Name = "btnCancelSale";
+            this.btnCancelSale.Size = new System.Drawing.Size(263, 37);
+            this.btnCancelSale.TabIndex = 49;
+            this.btnCancelSale.Text = "Отменить продажу";
+            this.btnCancelSale.UseVisualStyleBackColor = true;
+            // 
+            // dgvSales
+            // 
+            this.dgvSales.AllowUserToAddRows = false;
+            this.dgvSales.AllowUserToDeleteRows = false;
+            this.dgvSales.AllowUserToResizeRows = false;
+            this.dgvSales.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvSales.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvSales.EnableHeadersVisualStyles = false;
+            this.dgvSales.Location = new System.Drawing.Point(41, 157);
+            this.dgvSales.MultiSelect = false;
+            this.dgvSales.Name = "dgvSales";
+            this.dgvSales.ReadOnly = true;
+            this.dgvSales.RowHeadersVisible = false;
+            this.dgvSales.RowHeadersWidth = 51;
+            this.dgvSales.RowTemplate.Height = 24;
+            this.dgvSales.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvSales.Size = new System.Drawing.Size(789, 408);
+            this.dgvSales.TabIndex = 50;
+            // 
+            // dgvProductItems
+            // 
+            this.dgvProductItems.AllowUserToAddRows = false;
+            this.dgvProductItems.AllowUserToDeleteRows = false;
+            this.dgvProductItems.AllowUserToResizeRows = false;
+            this.dgvProductItems.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvProductItems.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvProductItems.EnableHeadersVisualStyles = false;
+            this.dgvProductItems.Location = new System.Drawing.Point(859, 187);
+            this.dgvProductItems.MultiSelect = false;
+            this.dgvProductItems.Name = "dgvProductItems";
+            this.dgvProductItems.ReadOnly = true;
+            this.dgvProductItems.RowHeadersVisible = false;
+            this.dgvProductItems.RowHeadersWidth = 51;
+            this.dgvProductItems.RowTemplate.Height = 24;
+            this.dgvProductItems.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvProductItems.Size = new System.Drawing.Size(262, 378);
+            this.dgvProductItems.TabIndex = 51;
             // 
             // FrmSalesList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1153, 651);
-            this.Controls.Add(this.btnDeletePartner);
-            this.Controls.Add(this.lblProductItems);
             this.Controls.Add(this.dgvProductItems);
+            this.Controls.Add(this.dgvSales);
+            this.Controls.Add(this.btnCancelSale);
+            this.Controls.Add(this.lblProductItems);
             this.Controls.Add(this.lblDateTo);
             this.Controls.Add(this.dtpDateTo);
             this.Controls.Add(this.dtpDateFrom);
@@ -187,14 +207,17 @@
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnRefreshSales);
             this.Controls.Add(this.btnAddSale);
-            this.Controls.Add(this.dgvSales);
             this.Controls.Add(this.txtSearchSale);
-            this.Controls.Add(this.дидSearchSale);
+            this.Controls.Add(this.lblSearchSale);
             this.Controls.Add(this.lblTitle);
             this.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "FrmSalesList";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Продажи";
             ((System.ComponentModel.ISupportInitialize)(this.dgvSales)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductItems)).EndInit();
@@ -212,12 +235,12 @@
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Button btnRefreshSales;
         private System.Windows.Forms.Button btnAddSale;
-        private System.Windows.Forms.DataGridView dgvSales;
         private System.Windows.Forms.TextBox txtSearchSale;
-        private System.Windows.Forms.Label дидSearchSale;
+        private System.Windows.Forms.Label lblSearchSale;
         private System.Windows.Forms.Label lblTitle;
-        private System.Windows.Forms.DataGridView dgvProductItems;
         private System.Windows.Forms.Label lblProductItems;
-        private System.Windows.Forms.Button btnDeletePartner;
+        private System.Windows.Forms.Button btnCancelSale;
+        private System.Windows.Forms.DataGridView dgvSales;
+        private System.Windows.Forms.DataGridView dgvProductItems;
     }
 }

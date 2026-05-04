@@ -93,6 +93,7 @@
             // 
             this.txtBatchNumber.Font = new System.Drawing.Font("Century Gothic", 14F);
             this.txtBatchNumber.Location = new System.Drawing.Point(32, 314);
+            this.txtBatchNumber.MaxLength = 50;
             this.txtBatchNumber.Name = "txtBatchNumber";
             this.txtBatchNumber.Size = new System.Drawing.Size(400, 36);
             this.txtBatchNumber.TabIndex = 43;
@@ -109,6 +110,7 @@
             // 
             // btnCancel
             // 
+            this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancel.Location = new System.Drawing.Point(271, 733);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(161, 41);
@@ -127,6 +129,7 @@
             // 
             // cmbSupplier
             // 
+            this.cmbSupplier.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbSupplier.Font = new System.Drawing.Font("Century Gothic", 14F);
             this.cmbSupplier.FormattingEnabled = true;
             this.cmbSupplier.Location = new System.Drawing.Point(32, 226);
@@ -166,6 +169,7 @@
             // 
             // cmbProduct
             // 
+            this.cmbProduct.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbProduct.Font = new System.Drawing.Font("Century Gothic", 14F);
             this.cmbProduct.FormattingEnabled = true;
             this.cmbProduct.Location = new System.Drawing.Point(32, 137);
@@ -184,6 +188,7 @@
             // 
             // dtpReceiptDate
             // 
+            this.dtpReceiptDate.Checked = false;
             this.dtpReceiptDate.Font = new System.Drawing.Font("Century Gothic", 14F);
             this.dtpReceiptDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpReceiptDate.Location = new System.Drawing.Point(32, 403);
@@ -193,6 +198,7 @@
             // 
             // dtpExpirationDate
             // 
+            this.dtpExpirationDate.Checked = false;
             this.dtpExpirationDate.Font = new System.Drawing.Font("Century Gothic", 14F);
             this.dtpExpirationDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpExpirationDate.Location = new System.Drawing.Point(32, 491);
@@ -204,14 +210,32 @@
             // 
             this.nudQuantity.Font = new System.Drawing.Font("Century Gothic", 14F);
             this.nudQuantity.Location = new System.Drawing.Point(32, 580);
+            this.nudQuantity.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.nudQuantity.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.nudQuantity.Name = "nudQuantity";
             this.nudQuantity.Size = new System.Drawing.Size(400, 36);
             this.nudQuantity.TabIndex = 56;
+            this.nudQuantity.ThousandsSeparator = true;
+            this.nudQuantity.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // FrmBatchEdit
             // 
+            this.AcceptButton = this.btnSave;
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.btnCancel;
             this.ClientSize = new System.Drawing.Size(460, 800);
             this.Controls.Add(this.nudQuantity);
             this.Controls.Add(this.dtpExpirationDate);
@@ -231,9 +255,15 @@
             this.Controls.Add(this.lblSupplier);
             this.Controls.Add(this.lblTitle);
             this.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(478, 847);
+            this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(478, 847);
             this.Name = "FrmBatchEdit";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Добавление поступления";
             ((System.ComponentModel.ISupportInitialize)(this.nudQuantity)).EndInit();
             this.ResumeLayout(false);

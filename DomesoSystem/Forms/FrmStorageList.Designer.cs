@@ -99,6 +99,7 @@
             // txtSearchStorage
             // 
             this.txtSearchStorage.Location = new System.Drawing.Point(112, 85);
+            this.txtSearchStorage.MaxLength = 100;
             this.txtSearchStorage.Name = "txtSearchStorage";
             this.txtSearchStorage.Size = new System.Drawing.Size(265, 32);
             this.txtSearchStorage.TabIndex = 21;
@@ -137,9 +138,13 @@
             this.Controls.Add(this.lblSearchStorage);
             this.Controls.Add(this.lblTitle);
             this.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "FrmStorageList";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Места хранения";
             ((System.ComponentModel.ISupportInitialize)(this.dgvStorageLocations)).EndInit();
             this.ResumeLayout(false);

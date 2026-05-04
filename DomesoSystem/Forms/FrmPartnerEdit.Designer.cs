@@ -52,6 +52,7 @@
             // 
             // btnCancel
             // 
+            this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancel.Location = new System.Drawing.Point(277, 903);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(161, 41);
@@ -72,8 +73,10 @@
             // 
             this.txtDescription.Font = new System.Drawing.Font("Century Gothic", 14F);
             this.txtDescription.Location = new System.Drawing.Point(38, 768);
+            this.txtDescription.MaxLength = 500;
             this.txtDescription.Multiline = true;
             this.txtDescription.Name = "txtDescription";
+            this.txtDescription.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txtDescription.Size = new System.Drawing.Size(400, 105);
             this.txtDescription.TabIndex = 18;
             // 
@@ -81,12 +84,14 @@
             // 
             this.txtPartnerName.Font = new System.Drawing.Font("Century Gothic", 14F);
             this.txtPartnerName.Location = new System.Drawing.Point(38, 139);
+            this.txtPartnerName.MaxLength = 100;
             this.txtPartnerName.Name = "txtPartnerName";
             this.txtPartnerName.Size = new System.Drawing.Size(400, 36);
             this.txtPartnerName.TabIndex = 17;
             // 
             // cmbPartnerType
             // 
+            this.cmbPartnerType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbPartnerType.Font = new System.Drawing.Font("Century Gothic", 14F);
             this.cmbPartnerType.FormattingEnabled = true;
             this.cmbPartnerType.Location = new System.Drawing.Point(38, 228);
@@ -138,9 +143,11 @@
             // 
             this.txtCountry.Font = new System.Drawing.Font("Century Gothic", 14F);
             this.txtCountry.Location = new System.Drawing.Point(38, 316);
+            this.txtCountry.MaxLength = 100;
             this.txtCountry.Name = "txtCountry";
             this.txtCountry.Size = new System.Drawing.Size(400, 36);
             this.txtCountry.TabIndex = 24;
+            this.txtCountry.Text = "Россия";
             // 
             // lblCountry
             // 
@@ -156,9 +163,11 @@
             // 
             this.txtPhone.Font = new System.Drawing.Font("Century Gothic", 14F);
             this.txtPhone.Location = new System.Drawing.Point(38, 405);
+            this.txtPhone.MaxLength = 30;
             this.txtPhone.Name = "txtPhone";
             this.txtPhone.Size = new System.Drawing.Size(400, 36);
             this.txtPhone.TabIndex = 26;
+            this.txtPhone.Text = "+7";
             // 
             // lblPhone
             // 
@@ -174,6 +183,7 @@
             // 
             this.txtEmail.Font = new System.Drawing.Font("Century Gothic", 14F);
             this.txtEmail.Location = new System.Drawing.Point(38, 582);
+            this.txtEmail.MaxLength = 100;
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(400, 36);
             this.txtEmail.TabIndex = 30;
@@ -192,6 +202,7 @@
             // 
             this.txtAddress.Font = new System.Drawing.Font("Century Gothic", 14F);
             this.txtAddress.Location = new System.Drawing.Point(38, 493);
+            this.txtAddress.MaxLength = 200;
             this.txtAddress.Name = "txtAddress";
             this.txtAddress.Size = new System.Drawing.Size(400, 36);
             this.txtAddress.TabIndex = 28;
@@ -210,6 +221,7 @@
             // 
             this.txtContactPerson.Font = new System.Drawing.Font("Century Gothic", 14F);
             this.txtContactPerson.Location = new System.Drawing.Point(38, 675);
+            this.txtContactPerson.MaxLength = 100;
             this.txtContactPerson.Name = "txtContactPerson";
             this.txtContactPerson.Size = new System.Drawing.Size(400, 36);
             this.txtContactPerson.TabIndex = 32;
@@ -226,8 +238,10 @@
             // 
             // FrmPartnerEdit
             // 
+            this.AcceptButton = this.btnSave;
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.btnCancel;
             this.ClientSize = new System.Drawing.Size(461, 972);
             this.Controls.Add(this.txtContactPerson);
             this.Controls.Add(this.lblContactPerson);
@@ -249,9 +263,13 @@
             this.Controls.Add(this.lblDescription);
             this.Controls.Add(this.lblTitle);
             this.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "FrmPartnerEdit";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Добавление контрагента";
             this.ResumeLayout(false);
             this.PerformLayout();

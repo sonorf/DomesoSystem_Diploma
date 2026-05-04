@@ -40,6 +40,7 @@
             // 
             // btnCancel
             // 
+            this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancel.Location = new System.Drawing.Point(254, 425);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(161, 41);
@@ -60,8 +61,10 @@
             // 
             this.txtStorageDescription.Font = new System.Drawing.Font("Century Gothic", 14F);
             this.txtStorageDescription.Location = new System.Drawing.Point(35, 241);
+            this.txtStorageDescription.MaxLength = 300;
             this.txtStorageDescription.Multiline = true;
             this.txtStorageDescription.Name = "txtStorageDescription";
+            this.txtStorageDescription.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txtStorageDescription.Size = new System.Drawing.Size(370, 139);
             this.txtStorageDescription.TabIndex = 15;
             // 
@@ -69,6 +72,7 @@
             // 
             this.txtStorageCode.Font = new System.Drawing.Font("Century Gothic", 14F);
             this.txtStorageCode.Location = new System.Drawing.Point(35, 155);
+            this.txtStorageCode.MaxLength = 50;
             this.txtStorageCode.Name = "txtStorageCode";
             this.txtStorageCode.Size = new System.Drawing.Size(370, 36);
             this.txtStorageCode.TabIndex = 14;
@@ -104,8 +108,10 @@
             // 
             // FrmStorageEdit
             // 
+            this.AcceptButton = this.btnSave;
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.btnCancel;
             this.ClientSize = new System.Drawing.Size(442, 496);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSave);
@@ -116,9 +122,13 @@
             this.Controls.Add(this.lblTitle);
             this.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.ForeColor = System.Drawing.Color.Black;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "FrmStorageEdit";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Добавление места хранения";
             this.ResumeLayout(false);
             this.PerformLayout();

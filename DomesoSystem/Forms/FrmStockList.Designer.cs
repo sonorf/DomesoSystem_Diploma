@@ -47,9 +47,24 @@
             // nudDaysBeforeExpire
             // 
             this.nudDaysBeforeExpire.Location = new System.Drawing.Point(1060, 97);
+            this.nudDaysBeforeExpire.Maximum = new decimal(new int[] {
+            365,
+            0,
+            0,
+            0});
+            this.nudDaysBeforeExpire.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.nudDaysBeforeExpire.Name = "nudDaysBeforeExpire";
             this.nudDaysBeforeExpire.Size = new System.Drawing.Size(62, 32);
             this.nudDaysBeforeExpire.TabIndex = 40;
+            this.nudDaysBeforeExpire.Value = new decimal(new int[] {
+            30,
+            0,
+            0,
+            0});
             // 
             // chkExpiringSoon
             // 
@@ -63,6 +78,7 @@
             // 
             // cmbProductFilter
             // 
+            this.cmbProductFilter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbProductFilter.FormattingEnabled = true;
             this.cmbProductFilter.Location = new System.Drawing.Point(112, 96);
             this.cmbProductFilter.Name = "cmbProductFilter";
@@ -127,6 +143,7 @@
             // 
             // cmbStorageFilter
             // 
+            this.cmbStorageFilter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbStorageFilter.FormattingEnabled = true;
             this.cmbStorageFilter.Location = new System.Drawing.Point(543, 96);
             this.cmbStorageFilter.Name = "cmbStorageFilter";
@@ -159,9 +176,13 @@
             this.Controls.Add(this.lblProductFilter);
             this.Controls.Add(this.lblTitle);
             this.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "FrmStockList";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Остатки";
             ((System.ComponentModel.ISupportInitialize)(this.nudDaysBeforeExpire)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvStock)).EndInit();

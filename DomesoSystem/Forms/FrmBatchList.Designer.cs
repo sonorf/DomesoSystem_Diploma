@@ -44,6 +44,7 @@
             // 
             // cmbProductFilter
             // 
+            this.cmbProductFilter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbProductFilter.FormattingEnabled = true;
             this.cmbProductFilter.Location = new System.Drawing.Point(110, 96);
             this.cmbProductFilter.Name = "cmbProductFilter";
@@ -79,11 +80,20 @@
             // 
             // dgvBatches
             // 
+            this.dgvBatches.AllowUserToAddRows = false;
+            this.dgvBatches.AllowUserToDeleteRows = false;
+            this.dgvBatches.AllowUserToResizeRows = false;
+            this.dgvBatches.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvBatches.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvBatches.EnableHeadersVisualStyles = false;
             this.dgvBatches.Location = new System.Drawing.Point(40, 157);
+            this.dgvBatches.MultiSelect = false;
             this.dgvBatches.Name = "dgvBatches";
+            this.dgvBatches.ReadOnly = true;
+            this.dgvBatches.RowHeadersVisible = false;
             this.dgvBatches.RowHeadersWidth = 51;
             this.dgvBatches.RowTemplate.Height = 24;
+            this.dgvBatches.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvBatches.Size = new System.Drawing.Size(1080, 408);
             this.dgvBatches.TabIndex = 22;
             // 
@@ -102,7 +112,7 @@
             this.lblTitle.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lblTitle.Location = new System.Drawing.Point(30, 30);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(421, 46);
+            this.lblTitle.Size = new System.Drawing.Size(337, 37);
             this.lblTitle.TabIndex = 19;
             this.lblTitle.Text = "Партии/поступления";
             // 
@@ -119,9 +129,24 @@
             // nudDaysBeforeExpire
             // 
             this.nudDaysBeforeExpire.Location = new System.Drawing.Point(694, 96);
+            this.nudDaysBeforeExpire.Maximum = new decimal(new int[] {
+            365,
+            0,
+            0,
+            0});
+            this.nudDaysBeforeExpire.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.nudDaysBeforeExpire.Name = "nudDaysBeforeExpire";
             this.nudDaysBeforeExpire.Size = new System.Drawing.Size(62, 32);
             this.nudDaysBeforeExpire.TabIndex = 31;
+            this.nudDaysBeforeExpire.Value = new decimal(new int[] {
+            30,
+            0,
+            0,
+            0});
             // 
             // FrmBatchList
             // 
@@ -138,9 +163,15 @@
             this.Controls.Add(this.lblProductFilter);
             this.Controls.Add(this.lblTitle);
             this.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(1168, 700);
+            this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(1168, 700);
             this.Name = "FrmBatchList";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Партии/поступления";
             ((System.ComponentModel.ISupportInitialize)(this.dgvBatches)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudDaysBeforeExpire)).EndInit();

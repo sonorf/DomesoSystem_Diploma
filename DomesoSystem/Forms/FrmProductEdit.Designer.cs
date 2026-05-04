@@ -95,6 +95,7 @@
             // 
             // cmbManufacturer
             // 
+            this.cmbManufacturer.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbManufacturer.Font = new System.Drawing.Font("Century Gothic", 14F);
             this.cmbManufacturer.FormattingEnabled = true;
             this.cmbManufacturer.Location = new System.Drawing.Point(39, 232);
@@ -106,6 +107,7 @@
             // 
             this.txtProductName.Font = new System.Drawing.Font("Century Gothic", 14F);
             this.txtProductName.Location = new System.Drawing.Point(39, 143);
+            this.txtProductName.MaxLength = 100;
             this.txtProductName.Name = "txtProductName";
             this.txtProductName.Size = new System.Drawing.Size(370, 36);
             this.txtProductName.TabIndex = 6;
@@ -114,8 +116,10 @@
             // 
             this.txtDescription.Font = new System.Drawing.Font("Century Gothic", 14F);
             this.txtDescription.Location = new System.Drawing.Point(39, 317);
+            this.txtDescription.MaxLength = 500;
             this.txtDescription.Multiline = true;
             this.txtDescription.Name = "txtDescription";
+            this.txtDescription.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txtDescription.Size = new System.Drawing.Size(370, 139);
             this.txtDescription.TabIndex = 7;
             // 
@@ -138,6 +142,7 @@
             // 
             // btnCancel
             // 
+            this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancel.Location = new System.Drawing.Point(251, 586);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(161, 41);
@@ -147,8 +152,10 @@
             // 
             // FrmProductEdit
             // 
+            this.AcceptButton = this.btnSave;
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.btnCancel;
             this.ClientSize = new System.Drawing.Size(442, 653);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSave);
@@ -162,9 +169,13 @@
             this.Controls.Add(this.lblPrice);
             this.Controls.Add(this.lblTitle);
             this.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "FrmProductEdit";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Добавление товара";
             ((System.ComponentModel.ISupportInitialize)(this.nudPrice)).EndInit();
             this.ResumeLayout(false);

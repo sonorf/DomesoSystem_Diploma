@@ -42,15 +42,15 @@
             this.txtSaleClient = new System.Windows.Forms.TextBox();
             this.lblSaleClient = new System.Windows.Forms.Label();
             this.lblProductItems = new System.Windows.Forms.Label();
-            this.dgvProductItems = new System.Windows.Forms.DataGridView();
             this.btnAddItem = new System.Windows.Forms.Button();
             this.btnDeleteItem = new System.Windows.Forms.Button();
             this.lblTotalAmount = new System.Windows.Forms.Label();
             this.lblAvailableQuantity = new System.Windows.Forms.Label();
             this.nudPrice = new System.Windows.Forms.NumericUpDown();
+            this.dgvProductItems = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.nudQuantity)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvProductItems)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudPrice)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProductItems)).BeginInit();
             this.SuspendLayout();
             // 
             // dtpSaleDate
@@ -66,9 +66,19 @@
             // 
             this.nudQuantity.Font = new System.Drawing.Font("Century Gothic", 14F);
             this.nudQuantity.Location = new System.Drawing.Point(448, 313);
+            this.nudQuantity.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.nudQuantity.Name = "nudQuantity";
             this.nudQuantity.Size = new System.Drawing.Size(370, 36);
             this.nudQuantity.TabIndex = 65;
+            this.nudQuantity.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // lblSaleDate
             // 
@@ -92,6 +102,7 @@
             // 
             // btnCancel
             // 
+            this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancel.Location = new System.Drawing.Point(657, 637);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(161, 41);
@@ -110,6 +121,7 @@
             // 
             // cmbProduct
             // 
+            this.cmbProduct.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbProduct.Font = new System.Drawing.Font("Century Gothic", 14F);
             this.cmbProduct.FormattingEnabled = true;
             this.cmbProduct.Location = new System.Drawing.Point(448, 232);
@@ -151,6 +163,7 @@
             // 
             this.txtSaleClient.Font = new System.Drawing.Font("Century Gothic", 14F);
             this.txtSaleClient.Location = new System.Drawing.Point(448, 119);
+            this.txtSaleClient.MaxLength = 100;
             this.txtSaleClient.Name = "txtSaleClient";
             this.txtSaleClient.Size = new System.Drawing.Size(370, 36);
             this.txtSaleClient.TabIndex = 68;
@@ -174,16 +187,6 @@
             this.lblProductItems.Size = new System.Drawing.Size(244, 30);
             this.lblProductItems.TabIndex = 70;
             this.lblProductItems.Text = "Товарные позиции:";
-            // 
-            // dgvProductItems
-            // 
-            this.dgvProductItems.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvProductItems.Location = new System.Drawing.Point(34, 209);
-            this.dgvProductItems.Name = "dgvProductItems";
-            this.dgvProductItems.RowHeadersWidth = 51;
-            this.dgvProductItems.RowTemplate.Height = 24;
-            this.dgvProductItems.Size = new System.Drawing.Size(370, 469);
-            this.dgvProductItems.TabIndex = 69;
             // 
             // btnAddItem
             // 
@@ -209,9 +212,9 @@
             this.lblTotalAmount.Font = new System.Drawing.Font("Century Gothic", 14F);
             this.lblTotalAmount.Location = new System.Drawing.Point(443, 556);
             this.lblTotalAmount.Name = "lblTotalAmount";
-            this.lblTotalAmount.Size = new System.Drawing.Size(253, 38);
+            this.lblTotalAmount.Size = new System.Drawing.Size(255, 30);
             this.lblTotalAmount.TabIndex = 74;
-            this.lblTotalAmount.Text = "Общая сумма:";
+            this.lblTotalAmount.Text = "Общая сумма: 0,00";
             // 
             // lblAvailableQuantity
             // 
@@ -219,30 +222,57 @@
             this.lblAvailableQuantity.Font = new System.Drawing.Font("Century Gothic", 14F);
             this.lblAvailableQuantity.Location = new System.Drawing.Point(443, 446);
             this.lblAvailableQuantity.Name = "lblAvailableQuantity";
-            this.lblAvailableQuantity.Size = new System.Drawing.Size(252, 30);
+            this.lblAvailableQuantity.Size = new System.Drawing.Size(272, 30);
             this.lblAvailableQuantity.TabIndex = 75;
-            this.lblAvailableQuantity.Text = "Доступный остаток:";
+            this.lblAvailableQuantity.Text = "Доступный остаток: 0";
             // 
             // nudPrice
             // 
+            this.nudPrice.DecimalPlaces = 2;
             this.nudPrice.Font = new System.Drawing.Font("Century Gothic", 14F);
             this.nudPrice.Location = new System.Drawing.Point(448, 396);
+            this.nudPrice.Maximum = new decimal(new int[] {
+            1000000,
+            0,
+            0,
+            0});
             this.nudPrice.Name = "nudPrice";
             this.nudPrice.Size = new System.Drawing.Size(370, 36);
             this.nudPrice.TabIndex = 76;
             // 
+            // dgvProductItems
+            // 
+            this.dgvProductItems.AllowUserToAddRows = false;
+            this.dgvProductItems.AllowUserToDeleteRows = false;
+            this.dgvProductItems.AllowUserToResizeRows = false;
+            this.dgvProductItems.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvProductItems.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvProductItems.EnableHeadersVisualStyles = false;
+            this.dgvProductItems.Location = new System.Drawing.Point(34, 209);
+            this.dgvProductItems.MultiSelect = false;
+            this.dgvProductItems.Name = "dgvProductItems";
+            this.dgvProductItems.ReadOnly = true;
+            this.dgvProductItems.RowHeadersVisible = false;
+            this.dgvProductItems.RowHeadersWidth = 51;
+            this.dgvProductItems.RowTemplate.Height = 24;
+            this.dgvProductItems.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvProductItems.Size = new System.Drawing.Size(370, 469);
+            this.dgvProductItems.TabIndex = 77;
+            // 
             // FrmSaleEdit
             // 
+            this.AcceptButton = this.btnSave;
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.btnCancel;
             this.ClientSize = new System.Drawing.Size(855, 706);
+            this.Controls.Add(this.dgvProductItems);
             this.Controls.Add(this.nudPrice);
             this.Controls.Add(this.lblAvailableQuantity);
             this.Controls.Add(this.lblTotalAmount);
             this.Controls.Add(this.btnDeleteItem);
             this.Controls.Add(this.btnAddItem);
             this.Controls.Add(this.lblProductItems);
-            this.Controls.Add(this.dgvProductItems);
             this.Controls.Add(this.txtSaleClient);
             this.Controls.Add(this.lblSaleClient);
             this.Controls.Add(this.dtpSaleDate);
@@ -256,13 +286,17 @@
             this.Controls.Add(this.lblProduct);
             this.Controls.Add(this.lblTitle);
             this.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "FrmSaleEdit";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Оформление продажи";
             ((System.ComponentModel.ISupportInitialize)(this.nudQuantity)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvProductItems)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudPrice)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProductItems)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -283,11 +317,11 @@
         private System.Windows.Forms.TextBox txtSaleClient;
         private System.Windows.Forms.Label lblSaleClient;
         private System.Windows.Forms.Label lblProductItems;
-        private System.Windows.Forms.DataGridView dgvProductItems;
         private System.Windows.Forms.Button btnAddItem;
         private System.Windows.Forms.Button btnDeleteItem;
         private System.Windows.Forms.Label lblTotalAmount;
         private System.Windows.Forms.Label lblAvailableQuantity;
         private System.Windows.Forms.NumericUpDown nudPrice;
+        private System.Windows.Forms.DataGridView dgvProductItems;
     }
 }
