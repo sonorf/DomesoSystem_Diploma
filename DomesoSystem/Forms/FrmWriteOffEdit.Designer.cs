@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmWriteOffEdit));
             this.lblWriteOffDate = new System.Windows.Forms.Label();
             this.lblWriteOffReason = new System.Windows.Forms.Label();
@@ -36,21 +37,30 @@
             this.btnSave = new System.Windows.Forms.Button();
             this.txtComment = new System.Windows.Forms.TextBox();
             this.cmbProduct = new System.Windows.Forms.ComboBox();
+            this.vProductsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.domesoSystemDBDataSet = new DomesoSystem.DomesoSystemDBDataSet();
             this.lblBatch = new System.Windows.Forms.Label();
             this.lblProductName = new System.Windows.Forms.Label();
             this.lblComment = new System.Windows.Forms.Label();
             this.lblTitle = new System.Windows.Forms.Label();
             this.cmbBatch = new System.Windows.Forms.ComboBox();
+            this.vBatchesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.cmbWriteOffReason = new System.Windows.Forms.ComboBox();
             this.nudWriteOffQuantity = new System.Windows.Forms.NumericUpDown();
             this.dtpWriteOffDate = new System.Windows.Forms.DateTimePicker();
             this.lblAvailableQuantity = new System.Windows.Forms.Label();
+            this.vBatchesTableAdapter = new DomesoSystem.DomesoSystemDBDataSetTableAdapters.vBatchesTableAdapter();
+            this.vProductsTableAdapter = new DomesoSystem.DomesoSystemDBDataSetTableAdapters.vProductsTableAdapter();
+            ((System.ComponentModel.ISupportInitialize)(this.vProductsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.domesoSystemDBDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vBatchesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudWriteOffQuantity)).BeginInit();
             this.SuspendLayout();
             // 
             // lblWriteOffDate
             // 
             this.lblWriteOffDate.AutoSize = true;
+            this.lblWriteOffDate.BackColor = System.Drawing.Color.Transparent;
             this.lblWriteOffDate.Font = new System.Drawing.Font("Century Gothic", 14F);
             this.lblWriteOffDate.Location = new System.Drawing.Point(31, 470);
             this.lblWriteOffDate.Name = "lblWriteOffDate";
@@ -61,6 +71,7 @@
             // lblWriteOffReason
             // 
             this.lblWriteOffReason.AutoSize = true;
+            this.lblWriteOffReason.BackColor = System.Drawing.Color.Transparent;
             this.lblWriteOffReason.Font = new System.Drawing.Font("Century Gothic", 14F);
             this.lblWriteOffReason.Location = new System.Drawing.Point(31, 386);
             this.lblWriteOffReason.Name = "lblWriteOffReason";
@@ -71,6 +82,7 @@
             // lblWriteOffQuantity
             // 
             this.lblWriteOffQuantity.AutoSize = true;
+            this.lblWriteOffQuantity.BackColor = System.Drawing.Color.Transparent;
             this.lblWriteOffQuantity.Font = new System.Drawing.Font("Century Gothic", 14F);
             this.lblWriteOffQuantity.Location = new System.Drawing.Point(31, 268);
             this.lblWriteOffQuantity.Name = "lblWriteOffQuantity";
@@ -80,26 +92,33 @@
             // 
             // btnCancel
             // 
+            this.btnCancel.BackColor = System.Drawing.Color.Linen;
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.Location = new System.Drawing.Point(275, 702);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(161, 41);
             this.btnCancel.TabIndex = 41;
             this.btnCancel.Text = "Отмена";
-            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.UseVisualStyleBackColor = false;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnSave
             // 
+            this.btnSave.BackColor = System.Drawing.Color.DarkSeaGreen;
             this.btnSave.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.Location = new System.Drawing.Point(36, 702);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(161, 41);
             this.btnSave.TabIndex = 40;
             this.btnSave.Text = "Сохранить";
-            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // txtComment
             // 
+            this.txtComment.BackColor = System.Drawing.Color.Linen;
             this.txtComment.Font = new System.Drawing.Font("Century Gothic", 14F);
             this.txtComment.Location = new System.Drawing.Point(36, 593);
             this.txtComment.MaxLength = 300;
@@ -111,17 +130,34 @@
             // 
             // cmbProduct
             // 
+            this.cmbProduct.BackColor = System.Drawing.Color.DarkSeaGreen;
+            this.cmbProduct.DataSource = this.vProductsBindingSource;
+            this.cmbProduct.DisplayMember = "ProductName";
             this.cmbProduct.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbProduct.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmbProduct.Font = new System.Drawing.Font("Century Gothic", 14F);
             this.cmbProduct.FormattingEnabled = true;
             this.cmbProduct.Location = new System.Drawing.Point(36, 212);
             this.cmbProduct.Name = "cmbProduct";
             this.cmbProduct.Size = new System.Drawing.Size(400, 35);
             this.cmbProduct.TabIndex = 37;
+            this.cmbProduct.ValueMember = "ProductId";
+            this.cmbProduct.SelectedIndexChanged += new System.EventHandler(this.cmbProduct_SelectedIndexChanged);
+            // 
+            // vProductsBindingSource
+            // 
+            this.vProductsBindingSource.DataMember = "vProducts";
+            this.vProductsBindingSource.DataSource = this.domesoSystemDBDataSet;
+            // 
+            // domesoSystemDBDataSet
+            // 
+            this.domesoSystemDBDataSet.DataSetName = "DomesoSystemDBDataSet";
+            this.domesoSystemDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // lblBatch
             // 
             this.lblBatch.AutoSize = true;
+            this.lblBatch.BackColor = System.Drawing.Color.Transparent;
             this.lblBatch.Font = new System.Drawing.Font("Century Gothic", 14F);
             this.lblBatch.Location = new System.Drawing.Point(31, 96);
             this.lblBatch.Name = "lblBatch";
@@ -132,6 +168,7 @@
             // lblProductName
             // 
             this.lblProductName.AutoSize = true;
+            this.lblProductName.BackColor = System.Drawing.Color.Transparent;
             this.lblProductName.Font = new System.Drawing.Font("Century Gothic", 14F);
             this.lblProductName.Location = new System.Drawing.Point(31, 179);
             this.lblProductName.Name = "lblProductName";
@@ -142,6 +179,7 @@
             // lblComment
             // 
             this.lblComment.AutoSize = true;
+            this.lblComment.BackColor = System.Drawing.Color.Transparent;
             this.lblComment.Font = new System.Drawing.Font("Century Gothic", 14F);
             this.lblComment.Location = new System.Drawing.Point(31, 560);
             this.lblComment.Name = "lblComment";
@@ -152,6 +190,7 @@
             // lblTitle
             // 
             this.lblTitle.AutoSize = true;
+            this.lblTitle.BackColor = System.Drawing.Color.Transparent;
             this.lblTitle.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lblTitle.Location = new System.Drawing.Point(29, 32);
             this.lblTitle.Name = "lblTitle";
@@ -161,19 +200,38 @@
             // 
             // cmbBatch
             // 
+            this.cmbBatch.BackColor = System.Drawing.Color.DarkSeaGreen;
+            this.cmbBatch.DataSource = this.vBatchesBindingSource;
+            this.cmbBatch.DisplayMember = "BatchNumber";
             this.cmbBatch.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbBatch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmbBatch.Font = new System.Drawing.Font("Century Gothic", 14F);
             this.cmbBatch.FormattingEnabled = true;
             this.cmbBatch.Location = new System.Drawing.Point(36, 129);
             this.cmbBatch.Name = "cmbBatch";
             this.cmbBatch.Size = new System.Drawing.Size(400, 35);
             this.cmbBatch.TabIndex = 50;
+            this.cmbBatch.ValueMember = "BatchId";
+            this.cmbBatch.SelectedIndexChanged += new System.EventHandler(this.cmbBatch_SelectedIndexChanged);
+            // 
+            // vBatchesBindingSource
+            // 
+            this.vBatchesBindingSource.DataMember = "vBatches";
+            this.vBatchesBindingSource.DataSource = this.domesoSystemDBDataSet;
             // 
             // cmbWriteOffReason
             // 
+            this.cmbWriteOffReason.BackColor = System.Drawing.Color.DarkSeaGreen;
             this.cmbWriteOffReason.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbWriteOffReason.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmbWriteOffReason.Font = new System.Drawing.Font("Century Gothic", 14F);
             this.cmbWriteOffReason.FormattingEnabled = true;
+            this.cmbWriteOffReason.Items.AddRange(new object[] {
+            "Истек срок годности",
+            "Повреждена упаковка",
+            "Брак",
+            "Порча товара",
+            "Другое"});
             this.cmbWriteOffReason.Location = new System.Drawing.Point(36, 419);
             this.cmbWriteOffReason.Name = "cmbWriteOffReason";
             this.cmbWriteOffReason.Size = new System.Drawing.Size(400, 35);
@@ -183,6 +241,11 @@
             // 
             this.nudWriteOffQuantity.Font = new System.Drawing.Font("Century Gothic", 14F);
             this.nudWriteOffQuantity.Location = new System.Drawing.Point(36, 301);
+            this.nudWriteOffQuantity.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
             this.nudWriteOffQuantity.Minimum = new decimal(new int[] {
             1,
             0,
@@ -209,6 +272,7 @@
             // lblAvailableQuantity
             // 
             this.lblAvailableQuantity.AutoSize = true;
+            this.lblAvailableQuantity.BackColor = System.Drawing.Color.Transparent;
             this.lblAvailableQuantity.Font = new System.Drawing.Font("Century Gothic", 14F);
             this.lblAvailableQuantity.Location = new System.Drawing.Point(31, 340);
             this.lblAvailableQuantity.Name = "lblAvailableQuantity";
@@ -216,11 +280,21 @@
             this.lblAvailableQuantity.TabIndex = 54;
             this.lblAvailableQuantity.Text = "Доступный остаток: 0";
             // 
+            // vBatchesTableAdapter
+            // 
+            this.vBatchesTableAdapter.ClearBeforeFill = true;
+            // 
+            // vProductsTableAdapter
+            // 
+            this.vProductsTableAdapter.ClearBeforeFill = true;
+            // 
             // FrmWriteOffEdit
             // 
             this.AcceptButton = this.btnSave;
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::DomesoSystem.Properties.Resources.bg4;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.CancelButton = this.btnCancel;
             this.ClientSize = new System.Drawing.Size(465, 783);
             this.Controls.Add(this.lblAvailableQuantity);
@@ -248,6 +322,10 @@
             this.Name = "FrmWriteOffEdit";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Добавление списания";
+            this.Load += new System.EventHandler(this.FrmWriteOffEdit_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.vProductsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.domesoSystemDBDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vBatchesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudWriteOffQuantity)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -271,5 +349,10 @@
         private System.Windows.Forms.NumericUpDown nudWriteOffQuantity;
         private System.Windows.Forms.DateTimePicker dtpWriteOffDate;
         private System.Windows.Forms.Label lblAvailableQuantity;
+        private DomesoSystemDBDataSet domesoSystemDBDataSet;
+        private System.Windows.Forms.BindingSource vBatchesBindingSource;
+        private DomesoSystemDBDataSetTableAdapters.vBatchesTableAdapter vBatchesTableAdapter;
+        private System.Windows.Forms.BindingSource vProductsBindingSource;
+        private DomesoSystemDBDataSetTableAdapters.vProductsTableAdapter vProductsTableAdapter;
     }
 }

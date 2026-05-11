@@ -40,25 +40,32 @@
             // 
             // btnCancel
             // 
+            this.btnCancel.BackColor = System.Drawing.Color.Linen;
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.Location = new System.Drawing.Point(254, 425);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(161, 41);
             this.btnCancel.TabIndex = 17;
             this.btnCancel.Text = "Отмена";
-            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.UseVisualStyleBackColor = false;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnSave
             // 
+            this.btnSave.BackColor = System.Drawing.Color.DarkSeaGreen;
+            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.Location = new System.Drawing.Point(35, 425);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(161, 41);
             this.btnSave.TabIndex = 16;
             this.btnSave.Text = "Сохранить";
-            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // txtStorageDescription
             // 
+            this.txtStorageDescription.BackColor = System.Drawing.Color.Linen;
             this.txtStorageDescription.Font = new System.Drawing.Font("Century Gothic", 14F);
             this.txtStorageDescription.Location = new System.Drawing.Point(35, 241);
             this.txtStorageDescription.MaxLength = 300;
@@ -80,6 +87,7 @@
             // lblStorageCode
             // 
             this.lblStorageCode.AutoSize = true;
+            this.lblStorageCode.BackColor = System.Drawing.Color.Transparent;
             this.lblStorageCode.Font = new System.Drawing.Font("Century Gothic", 14F);
             this.lblStorageCode.Location = new System.Drawing.Point(30, 122);
             this.lblStorageCode.Name = "lblStorageCode";
@@ -90,6 +98,7 @@
             // lblStorageDescription
             // 
             this.lblStorageDescription.AutoSize = true;
+            this.lblStorageDescription.BackColor = System.Drawing.Color.Transparent;
             this.lblStorageDescription.Font = new System.Drawing.Font("Century Gothic", 14F);
             this.lblStorageDescription.Location = new System.Drawing.Point(30, 208);
             this.lblStorageDescription.Name = "lblStorageDescription";
@@ -99,6 +108,7 @@
             // 
             // lblTitle
             // 
+            this.lblTitle.BackColor = System.Drawing.Color.Transparent;
             this.lblTitle.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lblTitle.Location = new System.Drawing.Point(28, 19);
             this.lblTitle.Name = "lblTitle";
@@ -111,6 +121,8 @@
             this.AcceptButton = this.btnSave;
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::DomesoSystem.Properties.Resources.bg4;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.CancelButton = this.btnCancel;
             this.ClientSize = new System.Drawing.Size(442, 496);
             this.Controls.Add(this.btnCancel);
@@ -124,12 +136,13 @@
             this.ForeColor = System.Drawing.Color.Black;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FrmStorageEdit";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Добавление места хранения";
+            this.Load += new System.EventHandler(this.FrmStorageEdit_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

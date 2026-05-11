@@ -51,6 +51,12 @@
     <ApplicationIcon>Resources\compound_icon_125484.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BouncyCastle.Cryptography, Version=2.0.0.0, Culture=neutral, PublicKeyToken=072edcf4a5328938, processorArchitecture=MSIL">
+      <HintPath>..\packages\BouncyCastle.Cryptography.2.6.2\lib\net461\BouncyCastle.Cryptography.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp, Version=5.5.13.5, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\iTextSharp.5.5.13.5\lib\net461\itextsharp.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -64,6 +70,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\DbConnectionFactory.cs" />
+    <Compile Include="DomesoSystemDBDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DomesoSystemDBDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FrmBatchEdit.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -75,6 +87,12 @@
     </Compile>
     <Compile Include="Forms\FrmBatchList.Designer.cs">
       <DependentUpon>FrmBatchList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmCancelReason.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmCancelReason.Designer.cs">
+      <DependentUpon>FrmCancelReason.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\FrmMain.cs">
       <SubType>Form</SubType>
@@ -148,6 +166,7 @@
     <Compile Include="Forms\FrmWriteOffList.Designer.cs">
       <DependentUpon>FrmWriteOffList.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\CurrentUser.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Forms\FrmBatchEdit.resx">
@@ -155,6 +174,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmBatchList.resx">
       <DependentUpon>FrmBatchList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmCancelReason.resx">
+      <DependentUpon>FrmCancelReason.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
@@ -200,7 +222,20 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="DomesoSystemDBDataSet.xsc">
+      <DependentUpon>DomesoSystemDBDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="DomesoSystemDBDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DomesoSystemDBDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DomesoSystemDBDataSet.xss">
+      <DependentUpon>DomesoSystemDBDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -227,9 +262,16 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Resources\backgroundImg1.jpg" />
+    <Content Include="Resources\bg2.jpg" />
+    <Content Include="Resources\bg3.png" />
+    <Content Include="Resources\bg4.jpg" />
     <Content Include="Resources\compound_icon_125484.ico" />
     <Content Include="Resources\icon.svg" />
     <Content Include="Resources\spray_icon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Documents\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
