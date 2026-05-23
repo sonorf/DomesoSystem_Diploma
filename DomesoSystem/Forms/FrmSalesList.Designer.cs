@@ -469,6 +469,7 @@
             this.btnPrintInvoice.TabIndex = 52;
             this.btnPrintInvoice.Text = "Документ продажи";
             this.btnPrintInvoice.UseVisualStyleBackColor = false;
+            this.btnPrintInvoice.Click += new System.EventHandler(this.btnPrintInvoice_Click);
             // 
             // FrmSalesList
             // 

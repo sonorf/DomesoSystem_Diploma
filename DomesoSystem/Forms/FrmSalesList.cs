@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using DomesoSystem.Data;
 using DomesoSystem.Models;
 using Microsoft.VisualBasic;
+using DomesoSystem.Services;
 
 namespace DomesoSystem.Forms
 {
@@ -25,6 +26,7 @@ namespace DomesoSystem.Forms
         {
             btnAddSale.Visible = CurrentUser.IsManager;
             btnCancelSale.Visible = CurrentUser.IsManager;
+            btnPrintInvoice.Visible = CurrentUser.IsAdmin || CurrentUser.IsManager;
         }
 
 
@@ -383,6 +385,51 @@ namespace DomesoSystem.Forms
                     transaction.Rollback();
                     throw;
                 }
+            }
+        }
+
+        private void btnPrintInvoice_Click(object sender, EventArgs e)
+        {
+            int? saleId = GetSelectedSaleId();
+
+            if (saleId == null)
+            {
+                MessageBox.Show(
+                    "Выберите продажу для формирования счета.",
+                    "Выбор записи",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning
+                );
+
+                return;
+            }
+
+            try
+            {
+                InvoicePdfService service = new InvoicePdfService();
+
+                string filePath = service.GenerateInvoicePdf(saleId.Value);
+
+                DialogResult result = MessageBox.Show(
+                    "Счет успешно сформирован.\n\nОткрыть документ?",
+                    "Готово",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Information
+                );
+
+                if (result == DialogResult.Yes)
+                {
+                    service.OpenPdf(filePath);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(
+                    "Ошибка при формировании счета-фактуры.\n\n" + ex.Message,
+                    "Ошибка",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                );
             }
         }
     }
